@@ -101,11 +101,14 @@ def main():
 
     command = sys.argv[1]
     if command == "split":
-        s1, s2 = wordlist.split(sys.argv[2].split())
+        mnemonic = input("Enter the mnemonic to split: ").split()
+        s1, s2 = wordlist.split(mnemonic)
         print("mnemonic1: ", " ".join(s1))
         print("mnemonic2: ", " ".join(s2))
     elif command == "combine":
-        original = wordlist.combine(sys.argv[2].split(), sys.argv[3].split())
+        mnemonic1 = input("Enter the first mnemonic: ").split()
+        mnemonic2 = input("Enter the second mnemonic: ").split()
+        original = wordlist.combine(mnemonic1, mnemonic2)
         print("mnemonic: ", " ".join(original))
     else:
         usage()
